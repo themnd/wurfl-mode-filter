@@ -1,5 +1,12 @@
 ## WURFL MODE FILTER
 
+This filter use the WURFL database and API (http://wurfl.sourceforge.net/) to change the website channel
+based on the User Agent. Currently it activates the mobile channel for mobile phones (i.e. no tablet).
+
+The filter will then set the header "X-channelMode" with the chosen channel.
+
+### pom.xml
+
 Changes to be done in greenfield online pom.xml:
 
 add the property:
@@ -35,7 +42,7 @@ in the "dependencyManagement" section change the version of the common collectio
 
 This is due to the use of ehcache 2.5.2 which require a newer version of commons-collections.
 
-In the "depedencies" section add the plugin:
+In the "dependencies" section add the plugin:
 
 ```xml
 <dependencies>
