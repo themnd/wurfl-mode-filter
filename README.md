@@ -43,7 +43,7 @@ In the "depedencies" section add the plugin:
 	<dependency>
 	  <groupId>com.atex.milan.plugins</groupId>
 	  <artifactId>wurfl-mode-filter</artifactId>
-	  <version>1.0-SNAPSHOT</version>
+	  <version>1.0</version>
 	</dependency>
 
 </dependencies>
@@ -75,7 +75,7 @@ Since this module use "com.octo.captcha" and this is using an older version of e
     </dependency>
 ```
 
-#### webdispatcher e webfront
+### webdispatcher e webfront
 
 In the web.xml of the webapps replace com.polopoly.siteengine.dispatcher.mode.ModeUrlTranslatorFilter with com.atex.milan.plugins.wmodefilter.filter.WURFLFilter:
 
@@ -93,11 +93,6 @@ You must add these two servers with your current polopoly username and password 
 ```xml
     <server>
       <id>atex-milan-public</id>
-      <username>yourusername</username>
-      <password>yourpassword</password>
-    </server>
-    <server>
-      <id>atex-milan-snapshots</id>
       <username>yourusername</username>
       <password>yourpassword</password>
     </server>
