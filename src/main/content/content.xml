@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batch xmlns="http://www.polopoly.com/polopoly/cm/xmlio">
+  <content>
+    <metadata>
+      <contentid>
+        <externalid>p.siteengine.ModeUrlTranslatorArticleTemplates.d</externalid>
+      </contentid>
+    </metadata>
+    <contentlist>
+      <entry mode="modify" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>com.atex.milan.plugins.wmodefilter.ModeFilterWURFL.filter</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+
+  <content>
+    <metadata>
+      <contentid>
+        <major>Content</major>
+        <externalid>com.atex.milan.plugins.wmodefilter.ModeFilterWURFL.filter</externalid>
+      </contentid>
+      <input-template>
+        <externalid>com.atex.milan.plugins.wmodefilter.ModeFilterWURFL</externalid>
+      </input-template>
+      <security-parent>
+        <externalid>example.modes.mobile.d</externalid>
+      </security-parent>
+    </metadata>
+    <component name="name" group="polopoly.Content">Mobile friendly mode (using User Agent)</component>
+  </content>
+
+  <content>
+    <metadata>
+      <contentid>
+        <major>Department</major>
+        <externalid>example.modes.mobile.d</externalid>
+      </contentid>
+    </metadata>
+    <contentlist>
+      <entry mode="modify" withMetadata="false">
+        <metadata>
+          <referredContent>
+            <contentid>
+              <externalid>com.atex.milan.plugins.wmodefilter.ModeFilterWURFL.filter</externalid>
+            </contentid>
+          </referredContent>
+        </metadata>
+      </entry>
+    </contentlist>
+  </content>
+
+</batch>

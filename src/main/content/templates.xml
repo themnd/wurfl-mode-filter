@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-definition version="1.0" xmlns="http://www.polopoly.com/polopoly/cm/app/xml">
+
+  <input-template name="com.atex.milan.plugins.wmodefilter.ModeFilterWURFL" label="com.atex.milan.plugins.wmodefilter.ModeFilterWURFL">
+    <policy>com.atex.milan.plugins.wmodefilter.filter.ModeFilterWURFLPolicy</policy>
+    <editor>com.polopoly.cm.app.widget.OTopPolicyWidget</editor>
+    <viewer>com.polopoly.cm.app.widget.OTopPolicyWidget</viewer>
+    <layout name="settings" input-template="p.Page" label="cm.general.Settings">
+      <field name="name" input-template="p.ContentName" label="com.atex.milan.plugins.wmodefilter.name" required="true" />
+    </layout>
+  </input-template>
+  
+</template-definition>
