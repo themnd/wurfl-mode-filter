@@ -1,20 +1,25 @@
-## Greenfield Online
+## WURFL MODE FILTER
 
 Changes to be done in greenfield online pom.xml:
 
 add the property:
 
+```xml
 <commons-collections.version>3.2.1</commons-collections.version>
+```
 
 in the "modules" section add the wurl-mode-filter:
 
+```xml
 <modules>
 	....
 	<module>wurfl-mode-filter</module>
 </modules>
+```
 
 in the "dependencyManagement" section change the version of the common collection:
 
+```xml
 <dependencyManagement>
 	<dependencies>
 		...
@@ -26,11 +31,13 @@ in the "dependencyManagement" section change the version of the common collectio
       ...		
 	</dependencies>
 </dependencyManagement>
+```
 
 This is due to the use of ehcache 2.5.2 which require a newer version of commons-collections.
 
 In the "depedencies" section add the plugin:
 
+```xml
 <dependencies>
 
 	<dependency>
@@ -40,23 +47,62 @@ In the "depedencies" section add the plugin:
 	</dependency>
 
 </dependencies>
+```
 
-### Branches
+### module-greenfield
 
-The Greenfield Online repository contains two types of branches, prefixed 'RELEASE' and 'RELENG'.
+Since this module use "com.octo.captcha" and this is using an older version of ehcache, you should exclude it:
 
-#### RELEASE branches
+```xml
+    <dependency>
+      <groupId>com.octo.captcha</groupId>
+      <artifactId>jcaptcha-all</artifactId>
+      <version>1.0-RC6</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>net.sf.ehcache</groupId>
+          <artifactId>ehcache</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+```
 
-RELEASE branches contain released versions of Greenfield Online. Code on these branches depends on released versions of Polopoly.
+#### webdispatcher e webfront
 
-#### RELENG branches
+In the web.xml of the webapps replace com.polopoly.siteengine.dispatcher.mode.ModeUrlTranslatorFilter with com.atex.milan.plugins.wmodefilter.filter.WURFLFilter:
 
-RELENG branches contain the latest Greenfield Online code for a particular version. Code on these branches usually depends on unreleased versions of Polopoly (using SNAPSHOT dependencies). At this time Polopoly does not distribute SNAPSHOT versions of our products, meaning it is not possible to build RELENG branches. It is still possible to use these branches to track changes.
+```xml
+  <filter>
+    <filter-name>modefilter</filter-name>
+    <filter-class>com.atex.milan.plugins.wmodefilter.filter.WURFLFilter</filter-class>
+  </filter>
+```
 
-### Issue handling
+## Maven settings.xml
 
-All Greenfield Online issue and support handling is performed in the [Greenfield Online](http://support.polopoly.com/jira/browse/GO "Greenfield Online") JIRA space on the support site.
+You must add these two servers with your current polopoly username and password to maven settings.xml:
+
+```xml
+    <server>
+      <id>atex-milan-public</id>
+      <username>yourusername</username>
+      <password>yourpassword</password>
+    </server>
+    <server>
+      <id>atex-milan-snapshots</id>
+      <username>yourusername</username>
+      <password>yourpassword</password>
+    </server>
+```
 
 ### Contact
 
-For information on the Greenfield Online repository, contact Polopoly Support at support.polopoly@atex.com.
+For information on this plugin, contact Marco Nova at mnova@atex.com.
